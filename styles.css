@@ -489,6 +489,7 @@ h1 {
 .product_more_info {
 	display: grid;
 	grid-row-gap: 18px;
+	grid-column-gap: 6px;
 	grid-template-columns: 1fr 1fr;
 	margin: 24px 0;
 	max-width: 480px;
