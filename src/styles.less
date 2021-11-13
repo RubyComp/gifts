@@ -2,6 +2,7 @@
 @text_color_common_accent: #012754;
 @text_color_minor: #8093A9;
 @text_color_minor_accent: #5A7390;
+@text_color_minor_2: #6499D6;
 
 @text_color_minor_anti: #fff;
 
@@ -14,6 +15,9 @@
 @back_color_accent_1_alt: #3B84D9;
 
 @back_color_accent_2: #E6F9F1;
+
+@back_color_accent_3: #5AD69F;
+@back_color_accent_3_anti: #FFF;
 
 
 
@@ -34,7 +38,7 @@
 
 
 @size_desctop_min: 860px;
-
+@size_tablet_min: @size_desctop_min - 260px;
 
 /**/
 
@@ -78,19 +82,19 @@ h1 {
 
 .btn {
 
-	background: none;
+	background-color: @back_color_soft;
 	border-radius: 100px;
-	border: inherit;
+	border: initial;
 	font-weight: 500;
 
 	&.btn_middle {
 		margin-top: 14px;
-		padding: .8em 1.6em;
+		padding: .81em 1.6em .79em;
 	}
 
 	&.btn_extra {
 		margin-top: 16px;
-		padding: 1.3em 2.3em;
+		padding: 1.1em 2.3em;
 		width: 100%;
 	}
 
@@ -101,6 +105,12 @@ h1 {
 	&.btn_glass {
 		background: none;
 		border: 1px solid @border_color_accent_1;
+	}
+	&.btn_clear {
+		background: none;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	&:not([disabled]) {
@@ -445,6 +455,19 @@ h1 {
 	background-image: url('/upload/icons/share.svg');
 }
 
+.more_btn_section {
+	display: flex;
+	justify-content: center;
+	margin-top: 2em;
+
+	.btn_extra {
+		font-size: 16px;
+		width: initial;
+	}
+	.btn_glass {
+		color: @text_color_neutral;
+	}
+}
 
 /**/
 .modal_showed {
@@ -489,11 +512,36 @@ h1 {
 	}
 	@media only screen and (max-width: @size_desctop_min - 1px) {
 		border-radius: 12px 12px 0 0;
+		padding: 48px 16px 8px;
+	}
+	@media only screen and (min-width: @size_tablet_min) {
 		padding: 48px 16px;
 	}
 
 	.btn_container {
 		text-align: right;
+		margin-top: 16px;
+
+		@media only screen and (min-width: @size_desctop_min) {
+			border-top: @back_color_soft solid 1px;
+		}
+
+		@media only screen and (max-width: @size_tablet_min - 1px) {
+			align-items: center;
+			display: flex;
+			flex-direction: column-reverse;
+			margin-bottom: 1em;
+
+			.btn {
+				font-size: 16px;
+			}
+			.btn_accent {
+				width: 100%;
+			}
+			.btn_clear {
+				color: @text_color_minor_2;
+			}
+		}
 	}
 }
 
@@ -542,7 +590,10 @@ h1 {
 		word-break: break-word;
 	}
 	@media only screen and (max-width: @size_desctop_min - 1px) {
-		padding-top: 10px;
+		border-color: @back_color_soft;
+		border-style: solid;
+		border-width: 1px 0 1px;
+		padding: 11px 0 21px;
 	}
 }
 
@@ -568,15 +619,23 @@ h1 {
 	text-align: center;
 
 	@media only screen and (min-width: @size_desctop_min) {
+		background-image: url('/upload/img/back_stars_1.png'), url('/upload/img/back_stars_2.png');
+		background-position: 17% 0, 94% 12%;
+		background-repeat: no-repeat, no-repeat;
 		padding: 20px;
 	}
 	@media only screen and (max-width: @size_desctop_min - 1px) {
-		padding: 26px;
+		background-image: url('/upload/img/back_stars_3.png'), url('/upload/img/back_stars_4.png');
+		background-position: 18% -2%, 92% 96%;
+		background-repeat: no-repeat, no-repeat;
+		padding: 15px 0 5px;
 	}
 }
 .message_content {
-	max-width: 297px;
+	font-size: 14px;
 	line-height: 1.4;
+	margin: .9em 0 .2em;
+	max-width: 297px;
 }
 
 .thanks_img {
@@ -589,3 +648,80 @@ h1 {
 	width: 52px;
 }
 
+/**/
+
+.global_note_wrapper {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+}
+.global_note_conatiner {
+	background-color: @back_color_soft;
+	font-size: 16px;
+	padding: 1em;
+	text-align: center;
+	text-align: center;
+}
+.note_positive {
+	background-color: @back_color_accent_3;
+	color: @back_color_accent_3_anti;
+}
+
+
+/**/
+
+
+.actions_list {
+	font-size: 16px;
+
+	li {
+		list-style: none;
+	}
+}
+
+.item_action {
+	align-items: center;
+	color: @text_color_common_accent;
+	display: flex;
+	padding: 1.1em 2.4em 1.1em .1em;
+	position: relative;
+	text-decoration: none;
+	transition: .3s;
+
+	@media only screen and (min-width: @size_desctop_min) {
+		max-width: 220px;
+	}
+
+	@media only screen and (min-width: @size_tablet_min) {
+		font-size: 18px;
+		padding-left: 2em;
+		padding-right: 3em;
+		border-radius: 40px;
+		&:hover {
+			background-color: @back_color_neutral;
+		}
+	}
+
+
+	&:after {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		content: '';
+		position: absolute;
+		right: .5em;
+		height: 23px;
+		width: 23px;
+		@media only screen and (min-width: @size_tablet_min) {
+			right: 1.4em;
+		}
+	}
+}
+
+.action_send:after {
+	background-image: url('/upload/icons/send.svg');
+}
+.action_copy:after {
+	background-image: url('/upload/icons/copy.svg');
+}
