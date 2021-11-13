@@ -1,0 +1,62 @@
+<html lang="en"><head>
+		<meta charset="utf-8">
+		<title>Swiper demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+		<style>
+			.swiper-slide {
+				background-color: whitesmoke;
+				border: 1px solid red;
+				box-shadow: inset 0px 0px 60px black;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor saepe molestias et facilis est nesciunt suscipit ipsam quae, illo eius. Aliquam reprehenderit corrupti distinctio cumque pariatur dicta dignissimos tenetur fuga eveniet consectetur. Beatae est dolor aut nesciunt, atque quae officia aliquam debitis laudantium optio repellendus illo cupiditate dicta, voluptatem rem architecto eum repellat a impedit quia sint aspernatur, facere dolores et. Distinctio quibusdam rerum ipsam at. Quas, modi commodi quam vel excepturi. Sunt aliquam, dolores dolorem id voluptate porro minus magnam molestias vitae deserunt excepturi distinctio libero, tenetur laboriosam, dolore iusto laudantium mollitia! Neque vitae nostrum laboriosam voluptatem eum.</p> -->
+		<div class="swiper mySwiper" id="popup_swiper" hidden>
+			<div class="swiper-wrapper" >
+				<div class="swiper-slide" style="opacity: .3;">Slide 1</div>
+				<div class="swiper-slide">Slide 2</div>
+			</div>
+		</div>
+
+		<script src="/src/swiper-bundle.min.js"></script>
+		<script>
+			// var swiper = new Swiper(".mySwiper", {});
+
+			var swiper = new Swiper('.mySwiper', {
+				// Optional parameters
+				direction: 'vertical',
+				loop: false,
+				followFinger: false,
+
+				// And if we need scrollbar
+				scrollbar: {
+					el: '.swiper-scrollbar',
+				},
+			});
+
+
+			let popup_swiper = document.getElementById('popup_swiper');
+
+			swiper.on('slideChange', function () {
+				console.log('slide changed');
+			});
+
+			swiper.show_popup = function() {
+				popup_swiper.setAttribute('hidden', '');
+				swiper.slideTo(1);
+			}
+
+			swiper.hide_popup = function() {
+				popup_swiper.setAttribute('hidden', 'hidden');
+				swiper.slideTo(0);
+			}
+		</script>
+	
+
+</body></html>
