@@ -386,8 +386,14 @@ h1 {
 	filter: blur(1.4px);
 	user-select: none;
 }
-.modal_showed .modal_wrapper {
+.modal_showed #modal_back {
 	background-color: #00000033;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 0;
 }
 .modal_wrapper {
 	display: flex;
@@ -488,12 +494,12 @@ h1 {
 }
 .product_more_info {
 	display: grid;
-	grid-row-gap: 18px;
+	font-size: 14px;
 	grid-column-gap: 6px;
+	grid-row-gap: 18px;
 	grid-template-columns: 1fr 1fr;
 	margin: 24px 0;
 	max-width: 480px;
-	font-size: 14px;
 }
 .product_more_info dt {
 	font-weight: 600;

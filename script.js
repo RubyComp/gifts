@@ -23,11 +23,4 @@ function hide_popup() {
 
 /**/
 
-
-let test_popup_btn = document.querySelector('#SHOW_TEST_POPUP');
-
-// test_popup_btn.onclick = show_popup();
-
-
-
 console.log('script.js finished');
